@@ -1,17 +1,23 @@
 import requests
 import json
 import datetime
-
-url="https://api.twelvedata.com/time_series"
-
+    
 def get_api_key() -> str:
-    file = open("api.txt", "r")
+    file = open("app/api.txt", "r")
     api_key:str = file.readline().rstrip() 
     file.close()
     return api_key
 
-def fetch(ticker:str) -> json:
-    api_key=get_api_key()
+api_key=get_api_key()
+
+def fetch(ticker_list:list) -> json:
+    url="https://api.twelvedata.com/time_series"
+    ticker = ''
+    for tick in ticker_list:
+        if ticker_list[-1]!= tick: ticker+=f"{tick},"
+        else: ticker+=f"{tick}"
+
+    print(ticker)
     if (len(api_key)<1): 
         print("make sure you created the file <api.txt> and its content is in the right format.")
         return
@@ -21,7 +27,7 @@ def fetch(ticker:str) -> json:
                 "symbol":ticker,
                 "interval":"1month",
                 "outputsize":"60",
-                "api_key":api_key
+                "apikey":api_key
             },
             timeout=5
         )
@@ -30,14 +36,16 @@ def fetch(ticker:str) -> json:
     except requests.exceptions.RequestException as error:
         print("Error:", error)
 
-url="https://api.twelvedata.com/stocks"
 
-def fetch_search_list(ticker:str):
+
+def fetch_search_list():
+    url="https://api.twelvedata.com/stocks?"
     res = requests.get(url,
-            params={"symbol":ticker},
+            params={"apikey":api_key},
             timeout=5                   
         )
     if res.status_code == 200: return res.json()
     else: print(f"Error fetching data: {res.status_code}")
-    
 
+if __name__ == "__main__":
+    print(fetch(["aapl","pltr"]))
