@@ -85,15 +85,15 @@ Step 3:
 <br/>
 
 
-Portfolio Covariance Matrix
+Portfolio Covariance Matrix:
 <br/>
 <img width="578" alt="" src="https://user-images.githubusercontent.com/97029819/229625478-6b081044-4472-4ae9-b5e1-0f2e26da4c34.png">
 <br/>
-Portfolio Correlation Matrix
+Portfolio Correlation Matrix:
 <br/>
 <img width="578" alt="" src="https://user-images.githubusercontent.com/97029819/229625495-2bb7309f-1350-4e3e-b458-6284749e7f6a.png">
 <br/>
-Portfolio Inverse Covariance Matrix
+Portfolio Inverse Covariance Matrix:
 <br/>
 <img width="726" alt="" src="https://user-images.githubusercontent.com/97029819/229625499-3723f2f2-925f-4238-8979-f8423d9bf746.png">
 <br/>
