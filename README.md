@@ -44,7 +44,7 @@ Step 4) Portfolio optimization with <a href="https://docs.scipy.org/doc/scipy/tu
 -Maximize the portfolio variance<br/>
 -Maximize the portfolio Sharpe ratio<br/>
 
-see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/frontier.py">app/frontier.py</a>
+see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/optimize.py">app/optimize.py</a>
 
 Step 5) Efficient frontier construction and portfolios modelling including:
 -Generate X amout of (1M) of portfolios<br/>
@@ -53,13 +53,17 @@ Step 5) Efficient frontier construction and portfolios modelling including:
     >Maximize the portfolio Sharpe ratio<br/>
 -Plot step 4 and 5<br/>
 
-# Example results
+see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/frontier.py">app/frontier.py</a>
+
+# Results Example
 
 Step 2:
+
+Monthly Prices:
 <br/>
 <img width="400" alt="" src="https://user-images.githubusercontent.com/97029819/229621780-afae2449-1056-44fa-b882-812eec861714.png">
-<br/>
-<br/>
+
+Monthly returns:
 <img width="400" alt="" src="https://user-images.githubusercontent.com/97029819/229622439-de3e3598-c1a0-4b00-853d-c3625f53f7a0.png">
 <br/>
 <br/>
