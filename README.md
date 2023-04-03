@@ -94,6 +94,18 @@ Portfolio Inverse Covariance Matrix
 <br/>
 <img width="726" alt="" src="https://user-images.githubusercontent.com/97029819/229625499-3723f2f2-925f-4238-8979-f8423d9bf746.png">
 <br/>
+Step 4: Note that the portfolio with asset weight bounds of [0.000, 0.900] and with a risk-free rate of 0.045. Very interesting to see that, when generating 1M of portfolios, we can very precisely predict the optimized portfolios. 
+<br/>
+<img width="292" alt="Screenshot 2023-04-03 at 5 20 00 PM" src="https://user-images.githubusercontent.com/97029819/229630459-615eb57e-60a2-41ef-bc0b-6fd239815815.png">
+<br/>
+<img width="309" alt="Screenshot 2023-04-03 at 5 20 16 PM" src="https://user-images.githubusercontent.com/97029819/229630460-40ba2ae7-7900-448f-b904-d587ad5ec333.png">
+<br/>
+<br/>
+<img width="571" alt="Screenshot 2023-04-03 at 5 20 38 PM" src="https://user-images.githubusercontent.com/97029819/229630462-c3822a7e-37db-419d-b414-d6a7423ae72a.png">
+<br/>
+<br/>
+<img width="571" alt="Screenshot 2023-04-03 at 5 20 48 PM" src="https://user-images.githubusercontent.com/97029819/229630463-e028f5dc-fb82-4eda-ba81-86d95c261c0a.png">
+<br/>
 Step 5:
 <br/>
 <img width="726" alt="" src="https://user-images.githubusercontent.com/97029819/229627650-f469d53e-420a-4c94-b7b6-046653bdec17.png">

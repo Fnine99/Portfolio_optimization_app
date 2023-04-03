@@ -62,10 +62,18 @@ class Frontier(Optimize):
 
         plt.title(f"Efficient Frontier [{self.portfolio_iterations} portfolios modeled]")
         plt.legend()
-        plt.show()
+        # plt.show()
 
         # rows=["Return", "Volatility", ""]
-        # print("Located minimum volatility portfolio:\n", min_vol_port)
-        # print("Located maximum Sharpe ratio portfolio\n", optimal_risky_port)
-        # print("Optimized minimum volatility portfolio:\n", optimized_min_vol_port)
-        # print("Optimized maximum Sharpe ratio portfolio\n", optimized_optimal_risky_port)
+        print("Located minimum volatility portfolio\n", min_vol_port)
+        print("Located maximum Sharpe ratio portfolio\n", optimal_risky_port)
+        print("Optimized minimum volatility portfolio\n")
+        print(f"Portfolio Return: {optimized_min_vol_port[0]}\n")
+        print(f"Portfolio Volatility: {optimized_min_vol_port[1]}\n")
+        print(f"Portfolio Assets weights: {[round(float(num), 6) for num in (optimized_min_vol_port[2])]}\n")
+
+
+        print("Optimized maximum Sharpe ratio portfolio\n")
+        print(f"Portfolio Return: {optimized_optimal_risky_port[0]}\n")
+        print(f"Portfolio Volatility: {optimized_optimal_risky_port[1]}\n")
+        print(f"Portfolio Assets weights: {[round(float(num), 6) for num in optimized_optimal_risky_port[2]]}\n")
