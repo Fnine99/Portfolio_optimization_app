@@ -5,10 +5,12 @@ This model is made for learning puposes only and should not be used for investme
 In this project I implement the almost complete automation of the portfolio optimization and risk using the Markowitz model.
 
 ## Usage:
+    mkdir <Folder name>
+
+    cd <Folder name>
+
     git clone https://github.com/Fnine99/markowitz_eff_frontier-pmgmt
     
-    cd Project
-        
     python app/main.py
 
 
