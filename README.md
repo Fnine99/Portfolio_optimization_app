@@ -64,6 +64,7 @@ Monthly Prices:
 <img width="400" alt="" src="https://user-images.githubusercontent.com/97029819/229621780-afae2449-1056-44fa-b882-812eec861714.png">
 
 Monthly returns:
+<br/>
 <img width="400" alt="" src="https://user-images.githubusercontent.com/97029819/229622439-de3e3598-c1a0-4b00-853d-c3625f53f7a0.png">
 <br/>
 <br/>
