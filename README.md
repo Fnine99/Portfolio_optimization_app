@@ -20,7 +20,7 @@ Step 1) 5 years monthly price time series data fetching on the <a href="https://
 
 see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/data.py">app/data.py</a>
 
-Step 2) Various methods on each assets including:
+Step 2) Various methods on each assets including:<br/>
 -Monthly prices<br/>
 -Monthly returns<br/>
 -Arithmetic mean return<br/>
@@ -29,7 +29,7 @@ Step 2) Various methods on each assets including:
 
 see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/assets.py">app/assets.py</a>
 
-Step 3) Portfolio construction and Various portfolio methods including:
+Step 3) Portfolio construction and Various portfolio methods including:<br/>
 -Portfolio return<br/>
 -Porfolio covariance_matrix<br/>
 -Portfolio variance<br/>
@@ -39,7 +39,7 @@ Step 3) Portfolio construction and Various portfolio methods including:
 
 see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/portfolio.py">app/portfolio.py</a>
 
-Step 4) Portfolio optimization with <a href="https://docs.scipy.org/doc/scipy/tutorial/optimize.html">Scipy algorithms</a> including finding the assets weights which:
+Step 4) Portfolio optimization with <a href="https://docs.scipy.org/doc/scipy/tutorial/optimize.html">Scipy algorithms</a> including finding the assets weights which:<br/>
 -Minimize the portfolio return<br/>
 -Maximize the portfolio return<br/>
 -Minimize the portfolio variance<br/>
@@ -48,7 +48,7 @@ Step 4) Portfolio optimization with <a href="https://docs.scipy.org/doc/scipy/tu
 
 see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/optimize.py">app/optimize.py</a>
 
-Step 5) Efficient frontier construction and portfolios modelling including:
+Step 5) Efficient frontier construction and portfolios modelling including:<br/>
 -Generate X amout of (1M) of portfolios<br/>
 -From those generated portfolios locate the assets weights which:<br/>
     >Minimize the portfolio variance<br/>
