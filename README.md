@@ -1,7 +1,8 @@
 This model is made for learning puposes only and should not be used for investment or decision making.
 
 # Portfolio risk management
-### An application of Markowitz efficient frontier and modern portfolio theory
+### An application of the Markowitz efficient frontier model and the Modern Portfolio Theory
+In this project I implement the almost complete automation of the portfolio optimization and risk using the Markowitz model.
 
 ## Usage:
     git clone https://github.com/Fnine99/markowitz_eff_frontier-pmgmt
@@ -70,6 +71,9 @@ Step 2:
 <br/>
 <img width="249" alt="" src="https://user-images.githubusercontent.com/97029819/229622670-c18106c8-f783-4385-bdc1-4b4c3945a855.png">
 <br/>
+
+
+Step 3:
 <br/>
 <img width="280" alt="" src="https://user-images.githubusercontent.com/97029819/229622676-4c516d11-8c44-407d-920d-924df9237305.png">
 <br/>
@@ -77,7 +81,34 @@ Step 2:
 <img width="280" alt="" src="https://user-images.githubusercontent.com/97029819/229622694-dd40d579-43c8-40dc-8749-dd5f033d2829.png">
 <br/>
 
-Step 3:
-Step 4:
+
+Portfolio Covariance Matrix
+<br/>
+<img width="578" alt="" src="https://user-images.githubusercontent.com/97029819/229625478-6b081044-4472-4ae9-b5e1-0f2e26da4c34.png">
+<br/>
+Portfolio Correlation Matrix
+<br/>
+<img width="578" alt="" src="https://user-images.githubusercontent.com/97029819/229625495-2bb7309f-1350-4e3e-b458-6284749e7f6a.png">
+<br/>
+Portfolio Inverse Covariance Matrix
+<br/>
+<img width="726" alt="" src="https://user-images.githubusercontent.com/97029819/229625499-3723f2f2-925f-4238-8979-f8423d9bf746.png">
+<br/>
 Step 5:
+<br/>
+<img width="726" alt="" src="https://user-images.githubusercontent.com/97029819/229627650-f469d53e-420a-4c94-b7b6-046653bdec17.png">
+<br/>
+<br/>
+<img width="726" alt="" src="https://user-images.githubusercontent.com/97029819/229627652-96aff356-f959-4a01-beac-c0fdf1739a2a.png">
+<br/>
+<br/>
+<img width="726" alt="" src="https://user-images.githubusercontent.com/97029819/229627653-e94906eb-9bda-4ecc-8495-cd78c836864d.png">
+<br/>
+<br/>
+<img width="726" alt="" src="https://user-images.githubusercontent.com/97029819/229627654-0273c900-914c-4a21-a7d5-394a1eba88c3.png">
+<br/>
+
+
+
+
 
