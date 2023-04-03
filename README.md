@@ -19,39 +19,39 @@ Step 1) 5 years monthly price time series data fetching on the <a href="https://
 see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/data.py">app/data.py</a>
 
 Step 2) Various methods on each assets including:
--Monthly prices
--Monthly returns
--Arithmetic mean return
--Geometric mean return
--Monthly returns standard deviation
+-Monthly prices<br/>
+-Monthly returns<br/>
+-Arithmetic mean return<br/>
+-Geometric mean return<br/>
+-Monthly returns standard deviation<br/>
 
 see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/assets.py">app/assets.py</a>
 
 Step 3) Portfolio construction and Various portfolio methods including:
--Portfolio return
--Porfolio covariance_matrix
--Portfolio variance
--Portfolio standard deviation
--Portfolio correlation matrix
--Portfolio inverse covariance matrix
+-Portfolio return<br/>
+-Porfolio covariance_matrix<br/>
+-Portfolio variance<br/>
+-Portfolio standard deviation<br/>
+-Portfolio correlation matrix<br/>
+-Portfolio inverse covariance matrix<br/>
 
 see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/portfolio.py">app/portfolio.py</a>
 
 Step 4) Portfolio optimization with <a href="https://docs.scipy.org/doc/scipy/tutorial/optimize.html">Scipy algorithms</a> including finding the assets weights which:
--Minimize the portfolio return
--Maximize the portfolio return
--Minimize the portfolio variance
--Maximize the portfolio variance
--Maximize the portfolio Sharpe ratio
+-Minimize the portfolio return<br/>
+-Maximize the portfolio return<br/>
+-Minimize the portfolio variance<br/>
+-Maximize the portfolio variance<br/>
+-Maximize the portfolio Sharpe ratio<br/>
 
 see <a href="https://github.com/Fnine99/markowitz_eff_frontier-pmgmt/blob/main/app/frontier.py">app/frontier.py</a>
 
 Step 5) Efficient frontier construction and portfolios modelling including:
--Generate X amout of (1M) of portfolios
--From those generated portfolios locate the assets weights which:
-    >Minimize the portfolio variance
-    >Maximize the portfolio Sharpe ratio
--Plot step 4 and 5
+-Generate X amout of (1M) of portfolios<br/>
+-From those generated portfolios locate the assets weights which:<br/>
+    >Minimize the portfolio variance<br/>
+    >Maximize the portfolio Sharpe ratio<br/>
+-Plot step 4 and 5<br/>
 
 # Example results
 
@@ -94,7 +94,8 @@ Portfolio Inverse Covariance Matrix
 <br/>
 <img width="726" alt="" src="https://user-images.githubusercontent.com/97029819/229625499-3723f2f2-925f-4238-8979-f8423d9bf746.png">
 <br/>
-Step 4: Note that the portfolio with asset weight bounds of [0.000, 0.900] and with a risk-free rate of 0.045. Very interesting to see that, when generating 1M of portfolios, we can very precisely predict the optimized portfolios. 
+Step 4:<br/>
+Note that the portfolio with asset weight bounds of [0.000, 0.900] and with a risk-free rate of 0.045. Very interesting to see that, when generating 1M of portfolios, we can very precisely predict the optimized portfolios. 
 <br/>
 <img width="292" alt="Screenshot 2023-04-03 at 5 20 00 PM" src="https://user-images.githubusercontent.com/97029819/229630459-615eb57e-60a2-41ef-bc0b-6fd239815815.png">
 <br/>
