@@ -12,19 +12,18 @@ api_key=get_api_key()
 
 def fetch(ticker_list:list) -> json:
     url="https://api.twelvedata.com/time_series"
-    ticker = ''
-    for tick in ticker_list:
-        if ticker_list[-1]!= tick: ticker+=f"{tick},"
-        else: ticker+=f"{tick}"
+    ticker_batch = ''
+    for ticker in ticker_list:
+        if ticker_list[-1] != ticker: ticker_batch+=f"{ticker},"
+        else: ticker_batch+=f"{ticker}"
 
-    print(ticker)
     if (len(api_key)<1): 
         print("make sure you created the file <api.txt> and its content is in the right format.")
         return
     try: 
         res = requests.get(url,
             params={
-                "symbol":ticker,
+                "symbol":ticker_batch,
                 "interval":"1month",
                 "outputsize":"60",
                 "apikey":api_key
@@ -38,10 +37,10 @@ def fetch(ticker_list:list) -> json:
 
 
 
-def fetch_search_list():
+def fetch_search_list(symbol:str=""):
     url="https://api.twelvedata.com/stocks?"
     res = requests.get(url,
-            params={"apikey":api_key},
+            params={"symbol": symbol,"apikey":api_key},
             timeout=5                   
         )
     if res.status_code == 200: return res.json()

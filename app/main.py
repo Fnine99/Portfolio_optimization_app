@@ -1,10 +1,11 @@
-
-
-class Portfolio:
-    """ This class """
-    def __init__(self) -> None:
-        return 0
-    
+from data import fetch
+from frontier import Frontier
+from portfolio import Portfolio
 
 if __name__ == '__main__':
-    print('hello world!')
+    data = fetch(["AAPL", "MSFT", "LLY", "PLTR", "GOOG"])
+    tick=Portfolio(data)
+    tick.compute()
+
+    frontier = Frontier(tick)
+    frontier.compute()
