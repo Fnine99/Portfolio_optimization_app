@@ -67,13 +67,11 @@ Monthly returns:
 <br/>
 <img width="400" alt="" src="https://user-images.githubusercontent.com/97029819/229622439-de3e3598-c1a0-4b00-853d-c3625f53f7a0.png">
 <br/>
-<br/>
+
 <img width="249" alt="" src="https://user-images.githubusercontent.com/97029819/229622635-98b35520-6c89-41a5-906d-d52ffc1b127f.png">
-<br/>
-<br/>
+
 <img width="249" alt="" src="https://user-images.githubusercontent.com/97029819/229622656-02133da5-e931-42be-a508-741fc610e582.png">
-<br/>
-<br/>
+
 <img width="249" alt="" src="https://user-images.githubusercontent.com/97029819/229622670-c18106c8-f783-4385-bdc1-4b4c3945a855.png">
 <br/>
 
