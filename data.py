@@ -1,9 +1,8 @@
 import requests
 import json
-import datetime
     
 def get_api_key() -> str:
-    file = open("app/api.txt", "r")
+    file = open("api.txt", "r")
     api_key:str = file.readline().rstrip() 
     file.close()
     return api_key

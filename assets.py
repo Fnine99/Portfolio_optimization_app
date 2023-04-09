@@ -13,8 +13,9 @@ class Assets:
         self.arith_mean_returns={}
         self.geo_mean_returns={}
         self.stdev={}
-        self.dates = [data["datetime"] for data in list(self.data.values())[0]["values"]]
 
+        self.tickers = np.array(list(self.data.keys()))
+        self.dates = np.array([data["datetime"] for data in list(self.data.values())[0]["values"]])
         self.portfolio_weights=np.array([1/len(self.data) for i in self.data]) # 1 stock exep.
 
 #---------------------------- security information methods --------------------------#  

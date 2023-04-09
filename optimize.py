@@ -25,6 +25,7 @@ class Optimize:
 
     # ------------------- lambdas ----------------- #
     def weight_constraint(self, weights):
+        
         return np.sum(weights) - 1
     
     def min_portfolio_return(self, weights):
