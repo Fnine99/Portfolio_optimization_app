@@ -5,3 +5,5 @@ plotly
 scipy
 numpy
 pandas
+streamlit_searchbox
+streamlit_tags
