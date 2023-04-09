@@ -1,14 +1,14 @@
 import streamlit as st
-from streamlit_searchbox import st_searchbox
+# from streamlit_searchbox import st_searchbox
 from streamlit_tags import st_tags_sidebar
 
 from frontier import Frontier
 from portfolio import Portfolio
 
 import plotly.express as px
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
+# import numpy as np
 import random
 import time
 
