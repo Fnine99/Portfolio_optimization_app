@@ -36,7 +36,7 @@ def get_options_data(tickers):
 #     st.session_state.options_count=0
 #     st.session_state.selected_options = {}
 
-st.set_page_config(page_title="Porfolio tuning", page_icon=":rocket:", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Porfolio Manager", page_icon=":rocket:", layout="wide", initial_sidebar_state="expanded")
 
 init = get_options_data(["AAPL", "PLTR", "GOOG", "AMD", "NVDA", "BABA"])
 st.session_state.data = init
