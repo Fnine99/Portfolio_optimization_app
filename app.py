@@ -1,6 +1,6 @@
 import streamlit as st
 # from streamlit_searchbox import st_searchbox
-from streamlit_tags import st_tags_sidebar
+from streamlit_tags import st_tags_sidebar, st_tags
 
 from frontier import Frontier
 from portfolio import Portfolio
@@ -14,6 +14,8 @@ import time
 
 from data import fetch_search_list, fetch
 
+st.set_page_config(page_title="Porfolio Manager", page_icon=":rocket:", layout="wide", initial_sidebar_state="expanded")
+
 def get_options(symbol:str):
     if not symbol: return []
     print(f"searching... {symbol}")
@@ -22,40 +24,44 @@ def get_options(symbol:str):
     return [tick['symbol'] for tick in data['data']]
 
 @st.cache_data
-def get_options_data(tickers):
-    data = fetch(tickers)
-    portfolio = Portfolio(data)
+def get_data(tickers):
+    return fetch(tickers)
+
+if "tickers_data" not in st.session_state:
+    st.session_state["tickers_data"] = get_data(["AAPL", "PLTR", "GOOG", "AMD", "NVDA", "BABA"])
+
+@st.cache_data
+def get_options_data(iterations=None, risk_free=None):
+    portfolio = Portfolio(st.session_state.tickers_data)
     portfolio.compute()
-    frontier = Frontier(portfolio)
+    if iterations and risk_free: frontier = Frontier(portfolio, iterations=iterations, rf_rate=risk_free)
+    else: frontier = Frontier(portfolio)
     frontier.compute()
     return portfolio, frontier
 
+if "data" not in st.session_state:
+    st.session_state["data"] = get_options_data()
 
-
-# if "selected_options" not in st.session_state:
-#     st.session_state.options_count=0
-#     st.session_state.selected_options = {}
-
-st.set_page_config(page_title="Porfolio Manager", page_icon=":rocket:", layout="wide", initial_sidebar_state="expanded")
-
-init = get_options_data(["AAPL", "PLTR", "GOOG", "AMD", "NVDA", "BABA"])
-st.session_state.data = init
+# if "data" not in st.session_state:
+#     get_data(["AAPL", "PLTR", "GOOG", "AMD", "NVDA", "BABA"])
+#     st.session_state["data"] = get_options_data()
 
 st.sidebar.title("Portfolio Manager")
 
-st.sidebar.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel ante hendrerit, lobortis est eget, ultricies velit. Nam at dui vitae ipsum laoreet finibus.")
+st.sidebar.write("This project is an implementation of the Markowitz efficient frontier model of the modern portfolio theory. This Beta release will receive future updates.")
 
 # st.multiselect(label, options, default=None, format_func=special_internal_function, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, label_visibility="visible", max_selections=None)
 tickers = st_tags_sidebar(
     label='# Enter your symbols:',
-    text='Enter to add more',
+    text='Press enter to add more',
     value=["AAPL", "PLTR", "GOOG", "AMD", "NVDA", "BABA"],
     # suggestions=['five', 'six', 'seven', 'eight', 'nine', 'three', 'eleven', 'ten', 'four'],
     maxtags = 6,
     key='1')
 
 if st.sidebar.button("optimize"):
-    st.session_state.data = get_options_data(tickers)
+    st.session_state.tickers_data = get_data(tickers)
+    st.session_state.data = get_options_data()
 
 st.write(f"Current portfolio assets: {[ticker.upper() for ticker in tickers]}")
 st.write(f"Weights: {st.session_state.data[0].portfolio_weights}")
@@ -156,6 +162,15 @@ with overview_tab:
                 st.plotly_chart(fig, use_container_width=True)
 
     with st.expander("Portfolio optimization", expanded=True):
+        slider, risk_free = st.columns((4,1))
+        slider_value = 20000
+        risk_free_rate = 4.5
+        with slider:
+            slider_value = st.slider("Select how many portfolios to model", 5000, 100000, value=slider_value)
+        with risk_free:
+            risk_free_rate = st.number_input("Risk free rate", value=risk_free_rate, step=0.5)
+        st.session_state.data = get_options_data(slider_value, risk_free_rate)
+
         portfolios = st.session_state.data[1].portfolios
             
         min_vol_port = portfolios.iloc[portfolios['Volatility'].idxmin()]

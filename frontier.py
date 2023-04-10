@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from optimize import Optimize
 
 class Frontier(Optimize):
-    def __init__(self, portfolio, iterations:int=100000, bounds=[0.000, 0.900], rf_rate=0.045) -> None:
+    def __init__(self, portfolio, iterations:int=20000, bounds=[0.000, 0.900], rf_rate=0.045) -> None:
         super().__init__(portfolio, bounds, rf_rate)
 
         self.portfolios_returns=[]
@@ -41,33 +41,33 @@ class Frontier(Optimize):
         self.optimized_min_vol_port = self.minimize_volatility()
         self.optimized_optimal_risky_port = self.optimal_portfolio()
     
-    def visualise_generated_portfolios(self):
-        plt.scatter(self.optimized_min_vol_port[1], self.optimized_min_vol_port[0], color='g', marker='o', s=15, label="Optimized minimum volatility portfolio")
-        plt.scatter(self.optimized_optimal_risky_port[1], self.optimized_optimal_risky_port[0], color='g', marker='+', s=20, label="Optimized maximum Sharpe ratio portfolio")
-        plt.scatter(self.min_vol_port[1], self.min_vol_port[0], color='r', marker='o', s=15, label="Located minimum volatility portfolio")
-        plt.scatter(self.optimal_risky_port[1], self.optimal_risky_port[0], color='r', marker='+', s=20, label="Located maximum Sharpe ratio portfolio")
+    # def visualise_generated_portfolios(self):
+    #     plt.scatter(self.optimized_min_vol_port[1], self.optimized_min_vol_port[0], color='g', marker='o', s=15, label="Optimized minimum volatility portfolio")
+    #     plt.scatter(self.optimized_optimal_risky_port[1], self.optimized_optimal_risky_port[0], color='g', marker='+', s=20, label="Optimized maximum Sharpe ratio portfolio")
+    #     plt.scatter(self.min_vol_port[1], self.min_vol_port[0], color='r', marker='o', s=15, label="Located minimum volatility portfolio")
+    #     plt.scatter(self.optimal_risky_port[1], self.optimal_risky_port[0], color='r', marker='+', s=20, label="Located maximum Sharpe ratio portfolio")
 
-        plt.title(f"Efficient Frontier [{self.portfolio_iterations} portfolios modeled]")
-        plt.legend()
+    #     plt.title(f"Efficient Frontier [{self.portfolio_iterations} portfolios modeled]")
+    #     plt.legend()
 
-    def visualize_monthly_returns_line(self):
-        test = pd.DataFrame(self.portfolio.monthly_returns, self.portfolio.dates[:self.portfolio.min_length-1])
-        test.plot.line(alpha=0.3, grid=True, figsize=[10,8])
-        plt.title("Monthly Returns")
+    # def visualize_monthly_returns_line(self):
+    #     test = pd.DataFrame(self.portfolio.monthly_returns, self.portfolio.dates[:self.portfolio.min_length-1])
+    #     test.plot.line(alpha=0.3, grid=True, figsize=[10,8])
+    #     plt.title("Monthly Returns")
     
-    def visualize_monthly_returns_hist(self):
-        test1 = pd.DataFrame.from_dict(self.portfolio.arith_mean_returns, orient='index', columns=['Arithmetic Returns'])
-        test2 = pd.DataFrame.from_dict(self.portfolio.geo_mean_returns, orient='index', columns=['Geometric Returns'])
-        combined = pd.concat([test1, test2], axis=1)
-        y = combined.plot(kind="bar", alpha=0.3, grid=True, figsize=[10,8])
-        y.set_ylabel('Returns')
-        plt.title("Average Returns")
+    # def visualize_monthly_returns_hist(self):
+    #     test1 = pd.DataFrame.from_dict(self.portfolio.arith_mean_returns, orient='index', columns=['Arithmetic Returns'])
+    #     test2 = pd.DataFrame.from_dict(self.portfolio.geo_mean_returns, orient='index', columns=['Geometric Returns'])
+    #     combined = pd.concat([test1, test2], axis=1)
+    #     y = combined.plot(kind="bar", alpha=0.3, grid=True, figsize=[10,8])
+    #     y.set_ylabel('Returns')
+    #     plt.title("Average Returns")
     
-    def visualize_stdev(self):
-        test3 = pd.DataFrame.from_dict(self.portfolio.stdev, orient='index', columns=['Standard Deviation'])
-        y1 = test3.plot(kind="bar", alpha=0.3, grid=True, figsize=[10,8])
-        y1.set_ylabel('Volatility')
-        plt.title("Returns Volatility")
+    # def visualize_stdev(self):
+    #     test3 = pd.DataFrame.from_dict(self.portfolio.stdev, orient='index', columns=['Standard Deviation'])
+    #     y1 = test3.plot(kind="bar", alpha=0.3, grid=True, figsize=[10,8])
+    #     y1.set_ylabel('Volatility')
+    #     plt.title("Returns Volatility")
 
     # def compute(self):
     #     self.visualise_generated_portfolios()
