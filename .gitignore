@@ -1,5 +1,5 @@
 .DS_Store
 # api.txt
 Pipfile
-setup.sh
-Procfile
+# setup.sh
+# Procfile
