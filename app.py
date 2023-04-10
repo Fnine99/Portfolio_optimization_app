@@ -164,12 +164,12 @@ with overview_tab:
     with st.expander("Portfolio optimization", expanded=True):
         slider, risk_free = st.columns((4,1))
         slider_value = 20000
-        risk_free_rate = 4.5/100
+        risk_free_rate = 4.5
         with slider:
             slider_value = st.slider("Select how many portfolios to model", 5000, 100000, value=slider_value)
         with risk_free:
-            risk_free_rate = st.number_input("Risk free rate (%)", value=risk_free_rate/100, step=0.5)
-        st.session_state.data = get_options_data(slider_value, risk_free_rate)
+            risk_free_rate = st.number_input("Risk free rate (%)", value=risk_free_rate, step=0.5)
+        st.session_state.data = get_options_data(iterations=slider_value, risk_free=risk_free_rate/100)
 
         portfolios = st.session_state.data[1].portfolios
             
