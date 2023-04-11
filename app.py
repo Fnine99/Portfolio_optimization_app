@@ -62,6 +62,7 @@ tickers = st_tags_sidebar(
 if st.sidebar.button("optimize"):
     st.session_state.tickers_data = get_data(tickers)
     st.session_state.data = get_options_data()
+    st.experimental_rerun()
 
 st.write(f"Current portfolio assets: {[ticker.upper() for ticker in tickers]}")
 st.write(f"Weights: {st.session_state.data[0].portfolio_weights}")
