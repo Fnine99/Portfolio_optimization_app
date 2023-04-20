@@ -31,26 +31,13 @@ class Portfolio(Assets):
     def compute(self):
         """ puplic method that will be called to calculate the statistics of the given porfolio """
         self.get_monthly_prices()
-        # print(pd.DataFrame(self.monthly_prices))
         self.cpt_monthly_returns()
-        # print(pd.DataFrame(self.monthly_returns))
         self.cpt_arith_mean_return()
-        # print(pd.DataFrame.from_dict(self.arith_mean_returns, orient='index', columns=["Arithmetic Returns"]))
         self.cpt_geo_mean_return()
-        # print(pd.DataFrame.from_dict(self.geo_mean_returns, orient='index', columns=["Geometric Returns"]))
         self.cpt_std_deviation()
-        # print(pd.DataFrame.from_dict(self.stdev, orient='index', columns=["Standard Deviation"]))
-        
-        
         self.cpt_portfolio_return()
-        # print("Portfolio Return:  ", self.portfolio_return)
         self.cpt_covariance_matrix()
-        # print(self.covariance_matrix)
         self.cpt_portfolio_variance()
-        # print("Portfolio Variance:  ", self.portfolio_variance)
         self.cpt_portfolio_stdev()
-        # print("Portfolio Standard deviation:  ", self.portfolio_stdev)
         self.cpt_correlation_matrix()
-        # print(self.correlation_matrix)
         self.cpt_inverse_covariance_matrix()
-        # print(self.inverse_covariance_matrix)

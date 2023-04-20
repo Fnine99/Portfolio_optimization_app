@@ -1,20 +1,28 @@
 import streamlit as st
-# from streamlit_searchbox import st_searchbox
 from streamlit_tags import st_tags_sidebar, st_tags
 
 from frontier import Frontier
 from portfolio import Portfolio
 
 import plotly.express as px
-# import matplotlib.pyplot as plt
 import pandas as pd
-# import numpy as np
 import random
 import time
 
 from data import fetch_search_list, fetch
 
-st.set_page_config(page_title="Porfolio Manager", page_icon=":rocket:", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Porfolio Manager", page_icon="📊", layout="wide", initial_sidebar_state="expanded")
+
+st.markdown(
+    """
+    <style>
+    [data-testid="stSidebar"][aria-expanded="true"]{
+        min-width: 320px;
+        max-width: 320px;
+    }
+    """,
+    unsafe_allow_html=True,
+)   
 
 def get_options(symbol:str):
     if not symbol: return []
@@ -27,11 +35,11 @@ def get_options(symbol:str):
 def get_data(tickers):
     return fetch(tickers)
 
-if "tickers_data" not in st.session_state:
-    st.session_state["tickers_data"] = get_data(["AAPL", "PLTR", "GOOG", "AMD", "NVDA", "BABA"])
-
 if "tickers" not in st.session_state:
-    st.session_state["tickers"] = ["AAPL", "PLTR", "GOOG", "AMD", "NVDA", "BABA"]
+    st.session_state["tickers"] = ["AAPL", "AMD", "NVDA", "BABA"]
+
+if "tickers_data" not in st.session_state:
+    st.session_state["tickers_data"] = get_data(st.session_state.tickers)
 
 st.session_state.slider_value = 20000
 st.session_state.risk_free_rate = 4.5
@@ -62,9 +70,11 @@ tickers = st_tags_sidebar(
     maxtags = 6,
     key='1')
 
+
+
 st.sidebar.write("This is an example portfolio. Make sure to modify the search with valid NYSE ticker symbols.")
 
-if st.sidebar.button("optimize ->"):
+if st.sidebar.button("Compute ▶"):
     st.session_state.tickers = tickers
     st.session_state.tickers_data = get_data(st.session_state.tickers)
     get_options_data()
@@ -72,9 +82,9 @@ if st.sidebar.button("optimize ->"):
 
 st.sidebar.write("The code repository [link](https://github.com/Fnine99/Portfolio_optimization_app). And futher [infos](https://github.com/Fnine99/Markowitz_mpt/blob/main/README.md).")
 
-if "data" in st.session_state:
-    st.write(f"Current portfolio assets: {[ticker.upper() for ticker in tickers]}")
-    st.write(f"Weights: {[f'{w*100:.2f}%' for w in list(st.session_state.data[0].portfolio_weights)]}")
+# if not get_query_params()['sidebar_state']:
+#     st.write(f"Current portfolio assets: {[ticker.upper() for ticker in tickers]}")
+#     st.write(f"Weights: {[f'{w*100:.2f}%' for w in list(st.session_state.data[0].portfolio_weights)]}")
 
 
 overview_tab, statistics_tab, summary_tab = st.tabs(["Overview", "Statistics", "Summary"])
@@ -228,6 +238,7 @@ with overview_tab:
                         mode='markers', marker=dict(color='purple', size=8, symbol='circle'),
                         name='Located maximum return portfolio')
         st.plotly_chart(fig, theme="streamlit", use_container_width=True, height=800)
+        st.info('Some portfolios may overlap. Toggle the legend to show/hide points.', icon="ℹ️")
     
     with st.expander("See explanation", expanded=True):
         col3, col4 = st.columns(2)
